@@ -23,5 +23,5 @@ struct Asistencia{
 
 Asistencia* resizeAsistencia(eAsistencia* miLista,  unsigned int tam,  unsigned int nuevoTam);
 eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias);
-void ImprimirAsistencias(eAsistencia* asistencias, unsigned int cant);
+eLectura devolverAsistencia(ofstream &ArchivoAsistencia, eAsistencia* asistencias, int cant);
 #endif // ASISTENCIAS_H

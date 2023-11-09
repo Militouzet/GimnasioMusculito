@@ -1,7 +1,7 @@
 #include "asistencias.h"
 //funcion para hacer resize a la asistencia si alguien mas se quiere unir a la clase
-Asistencia* resizeAsistencia(eAsistencia* miLista,  unsigned int tam,  unsigned int nuevoTam) {
-    Asistencia* aux = new Asistencia[nuevoTam];
+eAsistencia* resizeAsistencia(eAsistencia* miLista,  unsigned int tam,  unsigned int nuevoTam) {
+    eAsistencia* aux = new eAsistencia[nuevoTam];
 
     unsigned int longitud = (tam <  nuevoTam) ? tam : nuevoTam;
 
@@ -26,7 +26,7 @@ eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias)
     ArchivoAsistencia.seekg(0);
 
 
-    Asistencia* aux = asistencias;
+    eAsistencia* aux = asistencias;
 
     while (!ArchivoAsistencia.eof())//mientras que no este en el ultimo
     {
@@ -49,26 +49,24 @@ eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias)
     return eLectura::exitoabrio;
 }
 
-void ImprimirAsistencias(eAsistencia* asistencias, unsigned int cant){
-   eAsistencia *auxA = asistencias, *lastA = (asistencias) + (cant - 1);
-
-    while (true) {
-        cout << "id:" << auxA->idCliente << endl;
-        eInscripcion *auxH = auxA->CursosInscriptos,
-            *lastAux =
-            (auxA->CursosInscriptos) + (auxA->cantInscriptos - 1);
-        cout << "Incripciones:";
-        while (true) {
-            cout << auxH->idClase << ",";
-            if (auxH == lastAux)
-                break;
-            auxH++;
-        }
-        cout << endl;
-        if (auxA == lastA)
-            break;
-        auxA++;
+eLectura devolverAsistencia(ofstream &ArchivoAsistencia, eAsistencia* asistencias, int cant) {
+    ofstream outfile("binary_file_out.bin", ios::binary);
+    if (!outfile.is_open()) {
+        return eLectura::Errornoabrio;
     }
+
+    eAsistencia* aux = asistencias;//creo un puntero aux que es igual a asistencias para que asistencias se modifique localmente
+
+    for (int i = 0; i < cant; i++) {
+        ArchivoAsistencia.write((char* )&aux[i].idCliente, sizeof(uint));
+        ArchivoAsistencia.write((char*)&aux[i].cantInscriptos, sizeof(uint));
+        for (uint j = 0; j < aux[i].cantInscriptos; j++) {
+            ArchivoAsistencia.write((char *)&aux[i].CursosInscriptos[j],
+                       sizeof(eInscripcion));
+        }
+    }
+
+    return eLectura::exitoabrio;
 }
 
 
