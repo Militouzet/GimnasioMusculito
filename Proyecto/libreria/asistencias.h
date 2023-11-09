@@ -1,5 +1,5 @@
-#ifndef ARCHIVOS_H
-#define ARCHIVOS_H
+#ifndef ASISTENCIAS_H
+#define ASISTENCIAS_H
 #include <iostream>
 #include <string>
 #include "clases.h"
@@ -18,7 +18,10 @@ struct sInscripcion{
 
 typedef struct Asistencia{
     unsigned int idCliente, cantInscriptos;
-    Inscripcion* CursosInscriptos;
+    eInscripcion* CursosInscriptos;
 };typedef struct Asistencia eAsistencia;
 
-#endif // ARCHIVOS_H
+Asistencia* resizeAsistencia(eAsistencia* miLista, uint tam, uint nuevoTam);
+eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias);
+void ImprimirAsistencias(eAsistencia* asistencias,uint cant);
+#endif // ASISTENCIAS_H
