@@ -57,22 +57,23 @@ int main() {
 
     //---------------------------------ASISTENCIA--------------------------------------------------------------------
 
-    str encabezadoAsistencias;
     archivoAsistencias.clear();
     archivoAsistencias.seekg(0);
     int contAsistencias=-1;//como no le saco el encabezado
-    int aux;
+    uint auxLectura;
     while(!archivoAsistencias.eof()){
-        archivoAsistencias.read((char *)&aux,sizeof(int));
-        archivoAsistencias.read((char *)&aux,sizeof(int));
-        eInscripcion* Inscripciones;
-        for(int i=0; i<aux;i++){
-            archivoAsistencias.read((char *)&Inscripciones,sizeof(eInscripcion));
+        archivoAsistencias.read((char*)&auxLectura,sizeof(uint));
+        archivoAsistencias.read((char*)&auxLectura,sizeof(uint));
+        eInscripcion auxInscripciones;
+        for(uint i=0;i<auxLectura;i++){
+            archivoAsistencias.read((char*)&auxInscripciones,sizeof(eInscripcion));
         }
-        contAsistencias++;
-    }
-    cout << "assitencias" << contAsistencias << endl;
-    Asistencia *asistencias = new Asistencia[contAsistencias - 1];
+            contAsistencias++;
+     }
+
+
+    cout << "asistencias" << contAsistencias << endl;
+    Asistencia* asistencias = new Asistencia[contAsistencias - 1];
     eLectura resultadoAsistencias;
     resultadoAsistencias = ArchivoAsistencia(archivoAsistencias, asistencias);
     for(int i=0;i<contAsistencias;i++){
