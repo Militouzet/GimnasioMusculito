@@ -7,6 +7,7 @@
 using namespace std;
 
 int main() {
+    //---------------------------------------ABERTURA DE ARCHIVOS----------------------------------------------------------
 
     ifstream archivoClientes("../../iriClientesGYM.csv");
     if(!archivoClientes.is_open()){
@@ -16,8 +17,6 @@ int main() {
     if(!archivoClases.is_open()){
         cout<<"No abrio";
     }
-
-
 
     //-----------------------------------CLIENTES------------------------------------------------------
 
@@ -45,9 +44,8 @@ int main() {
     eClases* clases=new eClases[contClases];
     eLectura resultadoArchivoClases;
     resultadoArchivoClases=ArchivoClases(clases,archivoClases);
-    for(int i=0; i<contClases;i++){
-        cout<<""<<clases[i].cupo<<endl;
-    }
+    //---------------------------------ASISTENCIA--------------------------------------------------------------------
+
 
     return 0;
 
