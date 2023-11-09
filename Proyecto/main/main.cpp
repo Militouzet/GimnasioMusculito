@@ -43,11 +43,10 @@ int main() {
         contClases++;
 
     eClases* clases=new eClases[contClases];
-    eLectura resultadoArchivoClases;
-    resultadoArchivoClases=ArchivoClases(clases,archivoClases);
+    eLectura resultadoArchivoClase;
+    resultadoArchivoClase=ArchivoClases(clases,archivoClases);
     //---------------------------------ASISTENCIA--------------------------------------------------------------------
 
 
     return 0;
-
 }

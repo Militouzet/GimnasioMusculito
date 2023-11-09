@@ -16,12 +16,12 @@ struct sInscripcion{
     time_t fechaInscripcion;
 }; typedef struct sInscripcion eInscripcion;
 
-typedef struct Asistencia{
+struct Asistencia{
     unsigned int idCliente, cantInscriptos;
     eInscripcion* CursosInscriptos;
 };typedef struct Asistencia eAsistencia;
 
-Asistencia* resizeAsistencia(eAsistencia* miLista, uint tam, uint nuevoTam);
+Asistencia* resizeAsistencia(eAsistencia* miLista,  unsigned int tam,  unsigned int nuevoTam);
 eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias);
-void ImprimirAsistencias(eAsistencia* asistencias,uint cant);
+void ImprimirAsistencias(eAsistencia* asistencias, unsigned int cant);
 #endif // ASISTENCIAS_H
