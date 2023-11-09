@@ -17,6 +17,5 @@ struct clientes{
     int estado;
 };typedef struct clientes eClientes;
 //leer clientes del archivo
-/*eLectura leerClientes(eClientes* clientes,ifstream& archivo);*/
 eLectura ArchivoClientes(eClientes* clientes,ifstream& archivo);
 #endif // CLIENTES_H

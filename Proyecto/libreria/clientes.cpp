@@ -1,5 +1,5 @@
 #include "clientes.h"
-
+//funcion de lectura del archivo cliente
 eLectura ArchivoClientes(eClientes* clientes,ifstream& archivo){
         if(!archivo.is_open())
             return eLectura::Errornoabrio;

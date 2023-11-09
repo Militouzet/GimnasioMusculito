@@ -1,26 +1,28 @@
 #include "clases.h"
-/*unsigned int asignarcupos(eClases* clase){
-    if(clase->nombreclase=="Spinning" || clase->nombreclase=="spinning"){
-        clase->cupo=45;
+//funcion de asignar cupo a la clase
+unsigned int asignarcupos(str clase){
+    unsigned int cupo=0;
+    if(clase=="Spinning" || clase=="spinning"){
+        cupo=45;
     }
-    if(clase->nombreclase=="Yoga" || clase->nombreclase=="yoga"){
-        clase->cupo=25;
+    if(clase=="Yoga" || clase=="yoga"){
+        cupo=25;
     }
-    if(clase->nombreclase=="Pilates" || clase->nombreclase=="pilates"){
-        clase->cupo=15;
+    if(clase=="Pilates" || clase=="pilates"){
+        cupo=15;
     }
-    if(clase->nombreclase=="Stretching" || clase->nombreclase=="stretching"){
-        clase->cupo=40;
+    if(clase=="Stretching" || clase=="stretching"){
+        cupo=40;
     }
-    if(clase->nombreclase=="Zumba"|| clase->nombreclase=="zumba"){
-        clase->cupo=50;
+    if(clase=="Zumba"|| clase=="zumba"){
+        cupo=50;
     }
-    if(clase->nombreclase=="Boxeo"|| clase->nombreclase=="boxeo"){
-        clase->cupo=30;
+    if(clase=="Boxeo"|| clase=="boxeo"){
+        cupo=30;
     }
-    return clase->cupo;
+    return cupo;
 }
-*/
+//funcion de lectura del archivo clase
 eLectura ArchivoClases(eClases* clases,ifstream& archivo){
     if(!archivo.is_open())
         return eLectura::Errornoabrio;
@@ -45,7 +47,7 @@ eLectura ArchivoClases(eClases* clases,ifstream& archivo){
         aux->idClase = idClase;
         aux->nombreclase  = NombreClase;
         aux->horario  =stoi(horario);
-        /*aux->cupo=asignarcupos(aux);*/
+        (aux->cupo=asignarcupos(NombreClase));
         aux++;
     }
 
