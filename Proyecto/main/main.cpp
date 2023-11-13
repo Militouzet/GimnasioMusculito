@@ -71,16 +71,16 @@ int main() {
             contAsistencias++;
      }
 
-
+//----------------------------------------PRUEBA BINARIOS--------------------------------
     cout << "asistencias" << contAsistencias << endl;
     Asistencia* asistencias = new Asistencia[contAsistencias - 1];
     eLectura resultadoAsistencias;
     resultadoAsistencias = ArchivoAsistencia(archivoAsistencias, asistencias);
     for(int i=0;i<contAsistencias;i++){
-        cout<<""<<asistencias[i].idCliente;
-        cout<<""<<asistencias[i].CursosInscriptos;
-    }
+            cout<<""<<asistencias[i].idCliente<<","<<endl;
 
+    }
+//--------------------------------ELIMINAR MEMORIA Y CERRAR ARCHIVOS------------------------------
     delete [] clientes;
     delete[] clases;
     delete[] asistencias;

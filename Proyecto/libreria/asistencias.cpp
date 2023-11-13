@@ -31,7 +31,7 @@ eLectura ArchivoAsistencia(ifstream& ArchivoAsistencia,eAsistencia* asistencias)
     while (!ArchivoAsistencia.eof())//mientras que no este en el ultimo
     {
         ArchivoAsistencia.read((char*)&aux->idCliente, sizeof( unsigned int));
-        ArchivoAsistencia.read((char*)&aux->cantInscriptos, sizeof( unsigned int));
+        ArchivoAsistencia.read((char*)&aux->cantInscriptos, sizeof(unsigned int));
 
         eInscripcion* registrados = new eInscripcion[aux->cantInscriptos];
         eInscripcion* auxInscripciones = registrados;
@@ -58,8 +58,8 @@ eLectura devolverAsistencia(ofstream &ArchivoAsistencia, eAsistencia* asistencia
     eAsistencia* aux = asistencias;//creo un puntero aux que es igual a asistencias para que asistencias se modifique localmente
 
     for (int i = 0; i < cant; i++) {
-        ArchivoAsistencia.write((char* )&aux[i].idCliente, sizeof(uint));
-        ArchivoAsistencia.write((char*)&aux[i].cantInscriptos, sizeof(uint));
+        ArchivoAsistencia.write((char* )&aux[i].idCliente, sizeof(unsigned int));
+        ArchivoAsistencia.write((char*)&aux[i].cantInscriptos, sizeof(unsigned int));
         for (uint j = 0; j < aux[i].cantInscriptos; j++) {
             ArchivoAsistencia.write((char *)&aux[i].CursosInscriptos[j],
                        sizeof(eInscripcion));
