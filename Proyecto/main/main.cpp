@@ -60,12 +60,12 @@ int main() {
     archivoAsistencias.clear();
     archivoAsistencias.seekg(0);
     int contAsistencias=-1;//como no le saco el encabezado
-    uint auxLectura;
+    unsigned int auxLectura;
     while(!archivoAsistencias.eof()){
-        archivoAsistencias.read((char*)&auxLectura,sizeof(uint));
-        archivoAsistencias.read((char*)&auxLectura,sizeof(uint));
+        archivoAsistencias.read((char*)&auxLectura,sizeof(unsigned int));
+        archivoAsistencias.read((char*)&auxLectura,sizeof(unsigned int));
         eInscripcion auxInscripciones;
-        for(uint i=0;i<auxLectura;i++){
+        for(unsigned int i=0;i<auxLectura;i++){
             archivoAsistencias.read((char*)&auxInscripciones,sizeof(eInscripcion));
         }
             contAsistencias++;

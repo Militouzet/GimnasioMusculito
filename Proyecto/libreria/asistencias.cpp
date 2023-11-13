@@ -60,7 +60,7 @@ eLectura devolverAsistencia(ofstream &ArchivoAsistencia, eAsistencia* asistencia
     for (int i = 0; i < cant; i++) {
         ArchivoAsistencia.write((char* )&aux[i].idCliente, sizeof(unsigned int));
         ArchivoAsistencia.write((char*)&aux[i].cantInscriptos, sizeof(unsigned int));
-        for (uint j = 0; j < aux[i].cantInscriptos; j++) {
+        for (unsigned int j = 0; j < aux[i].cantInscriptos; j++) {
             ArchivoAsistencia.write((char *)&aux[i].CursosInscriptos[j],
                        sizeof(eInscripcion));
         }
